@@ -11,6 +11,8 @@ import pygame
 
 class Game(object):
   def main(self, screen):
+    image = pygame.image.load('player.png')
+
     while 1:
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -19,18 +21,15 @@ class Game(object):
             event.key == pygame.K_ESCAPE:
           return
 
+      screen.fill((200, 200, 200))
+      screen.blit(image, (320, 200))
+        # in the middle
+      pygame.display.flip()
+        # flip drawing and displaying buffers
+        # basicly vsync
+
 if __name__ == '__main__':
   pygame.init()
   screen = pygame.display.set_mode((640, 400))
   Game().main(screen)
 
-# pygame.init()
-# screen = pygame.display.set_mode((640, 400))
-# 
-# running = True
-# while running:
-#   for event in pygame.event.get():
-#     if event.type == pygame.QUIT:
-#       running = False
-#     if event.type == pygame.KEYDOWN and event.key == K_ESCAPE:
-#       running = False
