@@ -27,7 +27,15 @@ class Game(object):
             event.key == pygame.K_ESCAPE:
           return
 
-      image_x += 10
+      key = pygame.key.get_pressed()
+      if key[pygame.K_LEFT]:
+        image_x -= 5
+      if key[pygame.K_RIGHT]:
+        image_x += 5
+      if key[pygame.K_UP]:
+        image_y -= 5
+      if key[pygame.K_DOWN]:
+        image_y += 5
 
       screen.fill((200, 200, 200))
       screen.blit(image, (image_x, image_y))
