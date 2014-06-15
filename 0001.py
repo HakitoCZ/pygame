@@ -11,9 +11,15 @@ import pygame
 
 class Game(object):
   def main(self, screen):
+    clock = pygame.time.Clock()
+
     image = pygame.image.load('player.png')
+    image_x = 320
+    image_y = 200
 
     while 1:
+      clock.tick(30)
+
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           return
@@ -21,12 +27,11 @@ class Game(object):
             event.key == pygame.K_ESCAPE:
           return
 
+      image_x += 10
+
       screen.fill((200, 200, 200))
-      screen.blit(image, (320, 200))
-        # in the middle
+      screen.blit(image, (image_x, image_y))
       pygame.display.flip()
-        # flip drawing and displaying buffers
-        # basicly vsync
 
 if __name__ == '__main__':
   pygame.init()
