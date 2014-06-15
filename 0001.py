@@ -19,7 +19,7 @@ class Game(object):
             event.key == pygame.K_ESCAPE:
           return
 
-if __name == '__main__':
+if __name__ == '__main__':
   pygame.init()
   screen = pygame.display.set_mode((640, 400))
   Game().main(screen)
