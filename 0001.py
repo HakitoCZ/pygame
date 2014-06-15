@@ -15,16 +15,17 @@ class Player(pygame.sprite.Sprite):
     self.image = pygame.image.load('player.png')
     self.rect = pygame.rect.Rect((320, 200), self.image.get_size())
 
-  def update(self):
+  def update(self, dt):
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT]:
-      self.rect.x -= 5
+      self.rect.x -= 150 * dt
     if key[pygame.K_RIGHT]:
-      self.rect.x += 5
+      self.rect.x += 150 * dt
     if key[pygame.K_UP]:
-      self.rect.y -= 5
+      self.rect.y -= 150 * dt
     if key[pygame.K_DOWN]:
-      self.rect.y += 5
+      self.rect.y += 150 * dt
+        # movement speed 150px/s
 
 class Game(object):
   def main(self, screen):
@@ -32,11 +33,9 @@ class Game(object):
 
     sprites = pygame.sprite.Group()
     self.player = Player(sprites)
-   #  image_x = 320
-   #  image_y = 200
 
     while 1:
-      clock.tick(30)
+      dt = clock.tick(30)
 
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -45,17 +44,9 @@ class Game(object):
             event.key == pygame.K_ESCAPE:
           return
 
-     #  key = pygame.key.get_pressed()
-     #  if key[pygame.K_LEFT]:
-     #    image_x -= 5
-     #  if key[pygame.K_RIGHT]:
-     #    image_x += 5
-     #  if key[pygame.K_UP]:
-     #    image_y -= 5
-     #  if key[pygame.K_DOWN]:
-     #    image_y += 5
 
-      sprites.update()
+      sprites.update(dt / 1000.)
+        # change in time - in seconds
       screen.fill((200, 200, 200))
       sprites.draw(screen)
       pygame.display.flip()
