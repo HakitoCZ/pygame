@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 '''
-15.Jun.2014, HrnekBezucha, Manchester, UK
+15.Jun.2014, HakitoCZ, Manchester, UK
+According tutor@bMt47wvK6u0
 Very first pygame thing.
 '''
 
