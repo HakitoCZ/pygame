@@ -32,6 +32,7 @@ class Player(pygame.sprite.Sprite):
     new = self.rect
     for cell in pygame.sprite.spritecollide(self, game.walls, False):
       # Walls colissions
+      # False == destroying touched object
       # RIGHT WALL COLLIDS FROM RIGHT
       # KEEPS PLAYER OUTSIDE OF THE WINDOW
       # WHICH IS BAD
